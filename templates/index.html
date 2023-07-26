@@ -9,17 +9,10 @@
   </h1>
   <div class="container">
     <form action="{{url_for('predict')}}"method="post">
-      <input type="text" name="Gender" placeholder="Gender" required>
-      <input type="text" name="Age" placeholder="Age" required>
-      <input type="text" name="Income" placeholder="Income" required>
-      <input type="text" name="income_stability" placeholder="income_stability" required>
-      <input type="text" name="profession" placeholder="profession" required>
-      <input type="text" name="loan_expense" placeholder="loan_expense" required>
-      <input type="text" name="dependents" placeholder="dependents" required>
-      <input type="text" name="credit_score" placeholder="credit_score" required>
-      <input type="text" name="has_Active_card" placeholder="has_Active_card" required>
-      <input type="text" name="applicant" placeholder="co-applicant" required>
-
+      <input type="text" name="age" placeholder="Age" required>
+      <input type="text" name="sex" placeholder="Income" required>
+      <input type="text" name="children" placeholder="income_stability" required>
+      <input type="text" name="smoker" placeholder="profession" required>
       <button type="submit" class="btn">Predict</button>
     </form>
 
