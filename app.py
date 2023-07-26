@@ -1,10 +1,28 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jul 25 20:52:23 2023
+
+@author: Velan
+"""
+
 import numpy as np
-from flask import Flask,jsonify,render_template
+from flask import Flask,jsonify,render_template,request
 import pickle
 
 app = Flask(__name__)
 model = pickle.load(open('model.pkl', 'rb'))
 
+#
+#@app.route('/predict_api',methods=['POST'])
+#def predict_api():
+   # '''
+    #For direct API calls trought request
+    #'''
+    #data = request.get_json(force=True)
+    #prediction = model.predict([np.array(list(data.values()))])
+
+    #output = prediction[0]
+    #return jsonify(output)
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -15,10 +33,9 @@ def predict():
     print(int_features)
     final_features=np.array(int_features)
     prediction=model.predict(final_features)
-    data = {
-        "prediction":prediction
-           }
-    return jsonify(data)
+    output=prediction
+    
+    return render_template('index.html',prediction_text='Premium amount is{}'.format(output))
 
 @app.route('/predict_api/<int:feature1>/<int:feature2>/<int:feature3>/<int:feature4>', methods=['GET'])
 def predict_api(feature1, feature2, feature3, feature4):
