@@ -2,5 +2,4 @@ Flask
 Gunicorn
 Numpy
 Pandas
-python_version >= 3.6, < 4
 Scikit-Learn
