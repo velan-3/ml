@@ -6,12 +6,15 @@ Created on Tue Jul 25 20:52:23 2023
 """
 
 import numpy as np
-from flask import Flask,jsonify
+from flask import Flask,jsonify,render_template
 import pickle
 
 app = Flask(__name__)
 model = pickle.load(open('model.pkl', 'rb'))
+
 @app.route('/')
+def index():
+    return render_template('index.html')
 
 #
 #@app.route('/predict_api',methods=['POST'])
