@@ -6,8 +6,19 @@ app = Flask(__name__)
 model = pickle.load(open('model.pkl', 'rb'))
 
 @app.route('/')
-def index():
+def home():
     return render_template('index.html')
+
+@app.route('/predict',methods=["POST"])
+def predict():
+    int_features=[[int(x) for x in request.form.values()]]
+    print(int_features)
+    final_features=np.array(int_features)
+    prediction=model.predict(final_features)
+    data = {
+        "prediction":prediction
+           }
+    return jsonify(data)
 
 @app.route('/predict_api/<int:feature1>/<int:feature2>/<int:feature3>/<int:feature4>', methods=['GET'])
 def predict_api(feature1, feature2, feature3, feature4):
