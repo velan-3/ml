@@ -2,5 +2,5 @@ Flask
 Gunicorn
 Numpy
 Pandas
-Pickle
+pickle
 Scikit-Learn
