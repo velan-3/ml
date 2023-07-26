@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'Kore-AI'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_133BDC01D0F34CEF8FD3DBB9EA17EC31 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E5726A0196774CE6B82900659E5A9279 }}
